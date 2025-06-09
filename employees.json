@@ -1,0 +1,25 @@
+[
+  {
+    "id": "58c0a8de-b87d-46a6-b98f-80122b8d5dd8",
+    "name": "ahmed",
+    "role": "Developer",
+    "location": "UK",
+    "assignedDevice": {
+      "id": "2",
+      "model": "Dell XPS 13",
+      "screenSize": 13.3,
+      "processor": "Intel Core i7 12th Gen",
+      "ram": 16,
+      "availableLocations": [
+        "UK",
+        "Ireland"
+      ],
+      "status": "in use",
+      "user": {
+        "name": "ahmed",
+        "role": "Developer",
+        "assignedAt": "2025-06-08T15:54:32.826Z"
+      }
+    }
+  }
+]
