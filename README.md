@@ -1,8 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💻 IT Device Onboarding Dashboard
 
-## Getting Started
+A [Next.js](https://nextjs.org) web application that helps IT teams manage employee onboarding and assign devices intelligently based on job roles and locations.
 
-First, run the development server:
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/MAC1440/oodles-fe.git
+cd oodles-fe
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### 3. Run the Development Server
 
 ```bash
 npm run dev
@@ -10,27 +29,81 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser to use the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+/app                    # App Router (Next.js 15.3.3)
+/components             # Reusable UI components (Tables, Charts, Modals)
+/redux                  # RTK Query services and state slices
+/pages/api              # API routes (for testing on local machines)
+/types                  # Separate TypeScript types
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧠 Device Recommendation Logic
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Checking the Availability of the device First. If employee is onboarded, the device is assigned to the new employee and the assigned device would have its status changed.
+2. After Availability check, we move on to selected role and filter the available devices according to ram or screen sizes.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📊 Dashboard Overview
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The dashboard displays:
+- **Device Overview:** Pie chart showing available vs. assigned devices.
+- **Employee Growth:** Bar chart (daily, weekly, monthly) showing newly joined employees.
+- **Quick Access CTA:** Button to onboard employees (navigates to `/employees`).
+
+---
+
+## ✅ Features
+
+- 🔄 Real-time device and employee statistics
+- 🧠 Smart device assignment logic
+- 🧾 Employee onboarding modal with form validation
+- 🔍 Device listing with search/filter and availability status
+- 📊 Responsive charts via Recharts
+- 🧩 Modular components (Table, Modal, Tooltip)
+
+---
+
+## 📌 Assumptions Made
+
+- All devices have unique models (Selection is based on device models).
+- Locations are fixed and cannot be changed
+- Device assignment status is reliable from the backend.
+- All Details of devices that are assigned to be linked to the assignee.
+- Assigned devices would hold the assignee data
+- `createdAt` is a reliable timestamp for employee onboarding.
+
+---
+
+## 🔧 What I'd Improve With More Time
+
+Example:
+- Implement role-based authentication (admin vs. IT user).
+- Create module for adding new devices.
+- Add grouping of devices with same models and differentiate them based on unique id / serial number
+- Add Images for devices
+- Add dual view support for devices (table + cards)
+- Add pagination and sorting to tables.
+
+---
+
+## 📦 Tech Stack
+
+- **Next.js 15+ (App Router)**
+- **React 18**
+- **Tailwind CSS**
+- **Redux Toolkit + RTK Query**
+- **Recharts** for charting
+- **TypeScript**
+
+---

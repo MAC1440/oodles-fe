@@ -141,16 +141,30 @@ const COLORS = ["#34D399", "#F59E0B"];
 
 const ITDashboard = () => {
   const router = useRouter();
-  const [employeeView, setEmployeeView] = useState<"daily" | "weekly" | "monthly">("monthly");
+  const [employeeView, setEmployeeView] = useState<
+    "daily" | "weekly" | "monthly"
+  >("monthly");
 
-  const { data: devicesData, isLoading: devicesLoading } = useGetDevicesQuery({});
-  const { data: usersData, isLoading: usersLoading } = useGetUsersQuery({});
+  const { data: devicesData, isLoading: devicesLoading } = useGetDevicesQuery(
+    {},
+    {
+      refetchOnFocus: true,
+    }
+  );
+  const { data: usersData, isLoading: usersLoading } = useGetUsersQuery(
+    {},
+    {
+      refetchOnFocus: true,
+    }
+  );
 
   const devices = devicesData?.devices || [];
   const employees = usersData?.employees || [];
 
   // DEVICE STATS
-  const available = devices.filter((d: Device) => d.status === "available").length;
+  const available = devices.filter(
+    (d: Device) => d.status === "available"
+  ).length;
   const assigned = devices.length - available;
 
   const devicePieData = [
@@ -170,7 +184,10 @@ const ITDashboard = () => {
       if (employeeView === "daily") {
         key = format(joinedDate, "dd MMM");
       } else if (employeeView === "weekly") {
-        const weekStart = format(subDays(joinedDate, joinedDate.getDay()), "dd MMM");
+        const weekStart = format(
+          subDays(joinedDate, joinedDate.getDay()),
+          "dd MMM"
+        );
         key = `Week of ${weekStart}`;
       } else if (employeeView === "monthly") {
         key = format(joinedDate, "MMM yyyy");
@@ -273,7 +290,11 @@ const ITDashboard = () => {
               </ResponsiveContainer>
               <div className="mt-4 space-y-1 text-sm text-gray-700">
                 <p>Total Employees: {employees.length}</p>
-                <p>New {employeeView.charAt(0).toUpperCase() + employeeView.slice(1)}: {recentEmployeesCount}</p>
+                <p>
+                  New{" "}
+                  {employeeView.charAt(0).toUpperCase() + employeeView.slice(1)}
+                  : {recentEmployeesCount}
+                </p>
               </div>
             </>
           )}
