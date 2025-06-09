@@ -1,3 +1,4 @@
+"use client";
 import { withRole } from "@/lib/withRole";
 import React from "react";
 
