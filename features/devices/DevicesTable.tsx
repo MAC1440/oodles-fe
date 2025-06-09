@@ -6,6 +6,8 @@ import { useGetDevicesQuery } from "@/redux/services/devices/devicesApi";
 import SearchFilter from "@/components/SearchFilter";
 import Table from "@/components/Table";
 import { Settings } from "lucide-react";
+import Modal from "@/components/Modal";
+import AddDeviceForm from "./AddDeviceForm";
 
 //column settings for table , Header column name , accessor with its values
 const columns: Column<Device>[] = [
@@ -69,12 +71,22 @@ const DevicesTable = () => {
 
   // api call for devices
   const { data, isLoading, isFetching } = useGetDevicesQuery(searchParams);
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div>
+    <div className="p-3">
       <div className="py-4 px-5">
         <SearchFilter onSearch={handleSearch} />
       </div>
+      <div className="w-full flex justify-end pe-5">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded cursor-pointer transition"
+        >
+          + Add Device
+        </button>
+      </div>
+
       {isLoading || isFetching ? (
         "Loading ..."
       ) : (
@@ -82,6 +94,13 @@ const DevicesTable = () => {
           <Table<Device> columns={columns} data={data?.devices} />
         </>
       )}
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Onboarding"
+      >
+        <AddDeviceForm setIsOpen={() => setIsOpen(false)} />
+      </Modal>
     </div>
   );
 };

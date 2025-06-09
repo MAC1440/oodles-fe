@@ -54,7 +54,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
     <div className="flex flex-wrap gap-4 items-end text-emerald-900">
       {/* Role */}
       <div>
-        <div> Role</div>
+        <div>Role</div>
         <select
           name="role"
           value={params.role || ""}
@@ -71,48 +71,35 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
       {/* Location */}
       <div>
         <div> Location</div>
-      
-      <select
-        name="location"
-        value={params.location || ""}
-        onChange={handleChange}
-        className="border p-2 rounded  caret-emerald-700"
-      >
-        <option value="">All Locations</option>
-        <option value="UK">UK</option>
-        <option value="Ireland">Ireland</option>
-        <option value="EU">EU</option>
-      </select>
+
+        <select
+          name="location"
+          value={params.location || ""}
+          onChange={handleChange}
+          className="border p-2 rounded  caret-emerald-700"
+        >
+          <option value="">All Locations</option>
+          <option value="UK">UK</option>
+          <option value="Ireland">Ireland</option>
+          <option value="EU">EU</option>
+        </select>
       </div>
       {/* Status */}
       <div>
         <div>Status </div>
-      
-      <select
-        name="status"
-        value={params.status || ""}
-        onChange={handleChange}
-        className="border p-2 rounded  caret-emerald-700"
-      >
-        <option value="">Any Status</option>
-        <option value="available">Available</option>
-        <option value="in use">In Use</option>
-      </select>
-      </div>
-      {/* Recommended */}
-      <div className="h-full">
 
-      <label className="flex items-center space-x-2 cursor-pointer pb-2">
-        <input
-          type="checkbox"
-          name="recommended"
-          checked={params.recommended === "true"}
+        <select
+          name="status"
+          value={params.status || ""}
           onChange={handleChange}
-          className="accent-emerald-700"
-        />
-        <span>Recommended Only</span>
-      </label>
+          className="border p-2 rounded  caret-emerald-700"
+        >
+          <option value="">Any Status</option>
+          <option value="available">Available</option>
+          <option value="in use">In Use</option>
+        </select>
       </div>
+
       {/* Clear Filters Button */}
       {hasActiveFilters && (
         <button

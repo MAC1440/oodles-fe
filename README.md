@@ -81,6 +81,7 @@ The dashboard displays:
 - Device assignment status is reliable from the backend.
 - All Details of devices that are assigned to be linked to the assignee.
 - Assigned devices would hold the assignee data
+- Create module for adding new devices.
 - `createdAt` is a reliable timestamp for employee onboarding.
 
 ---
@@ -89,7 +90,6 @@ The dashboard displays:
 
 Example:
 - Implement role-based authentication (admin vs. IT user).
-- Create module for adding new devices.
 - Add grouping of devices with same models and differentiate them based on unique id / serial number
 - Add Images for devices
 - Add dual view support for devices (table + cards)

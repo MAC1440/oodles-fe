@@ -7,9 +7,9 @@ const Dashboard = () => {
   return (
     <>
       <head>
-      <title>Dashboard </title>
+        <title>Dashboard </title>
       </head>
-      <ITDashboard />;
+      <ITDashboard />
     </>
   );
 };
