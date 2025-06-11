@@ -96,9 +96,9 @@ Example:
 - Implement role-based authentication (admin vs. IT user).
 - Add grouping of devices with same models and differentiate them based on unique id / serial number
 - Add a dashboard for admin to manage devices and employees
-- Add backend and frontend for device unassignment and re-assignment when employee leaves the company
+- Add backend and frontend for device un-assignment and re-assignment when employee leaves the company
 - Create complete cruds for devices and employees
-- Add Images for devices
+- Add proper loading components for all the pages and components
 - Add dual view support for devices (table + cards)
 - Add pagination and sorting to tables.
 

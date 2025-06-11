@@ -7,11 +7,20 @@ import { useAddDeviceMutation } from "@/redux/services/devices/devicesApi";
 
 const schema = yup.object().shape({
   model: yup.string().required("Model is required"),
-  screenSize: yup.number().positive().required(),
-  processor: yup.string().required(),
-  ram: yup.number().positive().required(),
+  screenSize: yup
+    .number()
+    .typeError("Screen size must be a number")
+    .positive("Screen size must be positive")
+    .required("Screen size is required"),
+  processor: yup.string().required("Processor is required"),
+  ram: yup
+    .number()
+    .typeError("RAM must be a number")
+    .positive("RAM must be positive")
+    .required("RAM is required"),
   availableLocations: yup
     .array()
+    .typeError("Select at least one location")
     .of(yup.string().oneOf(["UK", "Ireland", "EU"]))
     .min(1, "Select at least one location"),
 });
@@ -103,7 +112,7 @@ export default function AddDeviceForm({
         className={`${
           apiError
             ? "bg-amber-600 hover:bg-amber-700"
-            : "bg-blue-600 hover:bg-blue-700"
+            : "bg-emerald-600 hover:bg-emerald-700"
         } text-white px-4 py-2 rounded cursor-pointer w-full`}
         disabled={addDeviceStatus.isLoading}
       >
