@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
+import bg from "../../../public/bg.jpg";
 export default function LoginPage() {
   const { login, isLoggingIn } = useAuth();
   const router = useRouter();
@@ -28,12 +28,17 @@ export default function LoginPage() {
   return (
     <>
       <Head>Login</Head>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div
+        className="min-h-screen flex items-center justify-center bg-emerald-100 px-4 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${bg.src})`,
+        }}
+      >
         <form
           onSubmit={handleLogin}
           className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
         >
-          <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">
+          <h2 className="text-2xl font-bold mb-6 text-center text-emerald-600">
             Login
           </h2>
 
@@ -57,20 +62,22 @@ export default function LoginPage() {
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            className="cursor-pointer w-full bg-emerald-600 text-white py-2 rounded hover:bg-emerald-700"
             disabled={isLoggingIn}
           >
             {isLoggingIn ? "Loading . . ." : "Login"}
           </button>
 
-          {/* <p className="text-sm mt-4 text-center text-black">
-          Don’t have an account?{" "}
-          <a href="/signup" className="text-blue-600 hover:underline">
-            Sign up
-          </a>
-        </p> */}
+          <p className="text-sm mt-4 text-center text-black ">
+            Dummy login:
+            <p className="text-sm mt-4 text-center text-black">
+              Email: alice@company.com
+              <br />
+              Password: password123
+            </p>
+          </p>
         </form>
-      </div>{" "}
+      </div>
     </>
   );
 }

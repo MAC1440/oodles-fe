@@ -2,6 +2,10 @@
 
 A [Next.js](https://nextjs.org) web application that helps IT teams manage employee onboarding and assign devices intelligently based on job roles and locations.
 
+## Deployed on Vercel
+
+[https://oodles-fe.vercel.app/](https://oodles-fe.vercel.app/)
+
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
@@ -91,6 +95,9 @@ The dashboard displays:
 Example:
 - Implement role-based authentication (admin vs. IT user).
 - Add grouping of devices with same models and differentiate them based on unique id / serial number
+- Add a dashboard for admin to manage devices and employees
+- Add backend and frontend for device unassignment and re-assignment when employee leaves the company
+- Create complete cruds for devices and employees
 - Add Images for devices
 - Add dual view support for devices (table + cards)
 - Add pagination and sorting to tables.
